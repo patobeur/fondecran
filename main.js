@@ -3,6 +3,7 @@
 let logoctif = true;
 let menuactif = true;
 let menuElem = document.getElementById('menu')
+let logo = document.getElementById('logoimage')
 
 document.onclick = function (event) {
     if (event.target.id === 'html' || event.target.id === 'options' || event.target === document.body) {
@@ -37,6 +38,8 @@ document.getElementById('margin-logo').onchange = function () {
 
 // zone d'ajout de l'image de fond perso
 var dropZone = document.getElementById('drop-zone');
+var dropZoneLogo = document.getElementById('drop-zone-logo');
+
 dropZone.ondragover = function (event) {
     event.preventDefault();
     this.style.borderColor = 'green';
@@ -52,6 +55,27 @@ dropZone.ondrop = function (event) {
         var fileReader = new FileReader();
         fileReader.onload = function (event) {
             document.body.style.backgroundImage = 'url(' + event.target.result + ')';
+        };
+        fileReader.readAsDataURL(files[0]);
+    }
+};
+dropZoneLogo.ondragover = function (event) {
+    event.preventDefault();
+    this.style.borderColor = 'green';
+};
+dropZoneLogo.ondragleave = function (event) {
+    this.style.borderColor = '#ccc';
+};
+dropZoneLogo.ondrop = function (event) {
+    event.preventDefault();
+    this.style.borderColor = '#ccc';
+    var files = event.dataTransfer.files;
+    if (files.length > 0) {
+        var fileReader = new FileReader();
+        fileReader.onload = function (event) {
+            console.log(logo)
+            logo.src = event.target.result
+            console.log(event)
         };
         fileReader.readAsDataURL(files[0]);
     }

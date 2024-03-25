@@ -123,13 +123,24 @@
                     }
                 }
 
-                #drop-zone {
+                #drop-zone,
+                #drop-zone-logo {
                     width: 80%;
                     height: 100px;
                     line-height: 100px;
                     border-radius: 10px;
                     margin: 20px auto;
                     cursor: pointer;
+
+                    border: 2px dashed #ccc;
+                    margin-top: 10px;
+                    padding: 10px;
+                    text-align: center;
+
+                    &:hover {
+                        border: 2px dashed #fff;
+                        background-color: #000000;
+                    }
                 }
 
             }
@@ -225,7 +236,7 @@
     <body id="body">
 
         <figure id="logo">
-            <img src="patobeur_blanc_transp2.png" alt="brand logo" width="160px" height="auto">
+            <img id="logoimage" src="patobeur_blanc_transp2.png" alt="brand logo" width="160px" height="auto">
         </figure>
 
 
@@ -280,6 +291,7 @@
                     </select>
                 </div>
 
+                <!-- Afficher/Masquer logo -->
                 <div class="parts">
                     <h2>Le Logo</h2>
                     <div class="row">
@@ -291,6 +303,7 @@
                     </div>
                 </div>
 
+                <!-- Marge et Largeur logo -->
                 <div class="parts">
                     <div class="row">
                         <label for="margin-logo">Marge autour du logo en px</label>
@@ -307,19 +320,35 @@
                     </div>
                 </div>
 
+
+
+
+                <!-- image de fond -->
+                <div class="parts">
+                    <h2>Logo</h2>
+                    <div id="drop-zone-logo">
+                        Glissez une image ici pour l'utiliser comme logo
+                    </div>
+                </div>
+
+
+
                 <!-- image de fond -->
                 <div class="parts">
                     <h2>Image de fond</h2>
-                    <div id="drop-zone"
-                        style="border:2px dashed #ccc; margin-top:10px; padding:10px; text-align:center;">
+                    <div id="drop-zone">
                         Glissez une image ici pour l'utiliser comme fond d'écran
                     </div>
                     <div class="column">
                         <button id="remove-background" class="button-action">Supprimer l'image de fond</button>
                     </div>
-
-
                 </div>
+
+
+
+
+
+
                 <!-- Informations -->
                 <div class="parts">
 
@@ -336,42 +365,23 @@
                     <div class="footer-pop">
                         <p class="alerteinfo">Avis Important Concernant les Droits et les Lois</p>
                         <p>Avant d'utiliser cet outil pour générer et personnaliser des captures d'écran, il est
-                            crucial
-                            de
-                            comprendre et de respecter les droits d'auteur et les lois en vigueur liées à
-                            l'utilisation
-                            de
-                            contenus numériques. En utilisant cet outil, vous vous engagez à ne pas enfreindre les
-                            droits
-                            d'auteur ou les marques déposées appartenant à des tiers. </p>
-                        <p>Il est de votre responsabilité de vous
-                            assurer que le contenu capturé et les logos ou images ajoutés ne violent pas les droits
-                            de
-                            propriété
-                            intellectuelle d'autres parties. De plus, toute manipulation d'images ou de contenus
-                            doit
-                            être
-                            effectuée dans le respect des lois applicables, y compris, mais sans s'y limiter, les
-                            lois
-                            sur
-                            la
-                            diffamation, la vie privée et l'image publique.</p>
+                            crucial de comprendre et de respecter les droits d'auteur et les lois en vigueur liées à
+                            l'utilisation de contenus numériques. En utilisant cet outil, vous vous engagez à ne pas
+                            enfreindre les droits d'auteur ou les marques déposées appartenant à des tiers. </p>
+                        <p>Il est de votre responsabilité de vous assurer que le contenu capturé et les logos ou images
+                            ajoutés ne violent pas les droits de propriété intellectuelle d'autres parties. De plus,
+                            toute manipulation d'images ou de contenus doit être effectuée dans le respect des lois
+                            applicables, y ompris, mais sans s'y limiter, les lois sur la diffamation, la vie privée et
+                            l'image publique.</p>
                         <p>Utiliser des images ou des logos sans autorisation peut avoir des conséquences légales
-                            sérieuses,
-                            incluant des poursuites judiciaires pour violation de droits d'auteur. Nous encourageons
-                            vivement
-                            tous les utilisateurs à procéder à une vérification diligente et à obtenir les
-                            permissions
-                            nécessaires avant d'utiliser des contenus protégés par des droits d'auteur ou des
-                            marques.
-                        </p>
-                        <p>Cet outil
-                            est conçu pour faciliter la création et la personnalisation de contenus dans un cadre
-                            légal
-                            et
-                            éthique. Votre utilisation responsable est essentielle pour maintenir un environnement
-                            respectueux
-                            des droits d'autrui et pour garantir que l'outil reste un atout précieux pour tous.</p>
+                            sérieuses, incluant des poursuites judiciaires pour violation de droits d'auteur. Nous
+                            encourageons vivement tous les utilisateurs à procéder à une vérification diligente et à
+                            obtenir les permissions nécessaires avant d'utiliser des contenus protégés par des droits
+                            d'auteur ou des marques. </p>
+                        <p>Cet outil est conçu pour faciliter la création et la personnalisation de contenus dans n
+                            cadre légal et éthique. Votre utilisation responsable est essentielle pour maintenir un
+                            environnement respectueux des droits d'autrui et pour garantir que l'outil reste un atout
+                            précieux pour tous. </p>
                     </div>
                 </div>
 
