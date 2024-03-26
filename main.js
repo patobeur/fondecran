@@ -16,17 +16,21 @@ document.getElementById('background-select').onchange = function () {
     document.body.style.background = 'var(' + selectedValue + ')';
 };
 
-// largeur du logo
+// --------------------------------------------------------------------
+// largeur du logo en pixel
+// --------------------------------------------------------------------
 document.getElementById('width-logo').onchange = function () {
     var logoWidth = document.getElementById('width-logo').value;
-    if (!isNaN(logoWidth) && logoWidth !== '') {
+    if (!isNaN(logoWidth) && logoWidth !== '' && logoWidth > 0) {
         document.querySelector('img[alt="brand logo"]').style.width = logoWidth + 'px';
     } else {
-        alert('Veuillez entrer une valeur numérique pour la largeur.');
+        alert('Veuillez entrer une valeur numérique positive pour la largeur.');
     }
 };
 
+// --------------------------------------------------------------------
 // margin du logo
+// --------------------------------------------------------------------
 document.getElementById('margin-logo').onchange = function () {
     var logoMargin = document.getElementById('margin-logo').value;
     if (!isNaN(logoMargin) && logoMargin !== '') {
@@ -36,7 +40,9 @@ document.getElementById('margin-logo').onchange = function () {
     }
 };
 
-// zone d'ajout de l'image de fond perso
+// --------------------------------------------------------------------
+// dropZone pour ajouter l'image en arrière plan du body
+// --------------------------------------------------------------------
 var dropZone = document.getElementById('drop-zone');
 var dropZoneLogo = document.getElementById('drop-zone-logo');
 
@@ -81,16 +87,22 @@ dropZoneLogo.ondrop = function (event) {
     }
 };
 
+// --------------------------------------------------------------------
 // Bouton pour supprimer l'image de fond
+// --------------------------------------------------------------------
 document.getElementById('remove-background').onclick = function () {
     document.body.style.backgroundImage = '';
 };
+// --------------------------------------------------------------------
 // Bouton pour ne pas aficher le logo ???
+// --------------------------------------------------------------------
 document.getElementById('toggle-logo').onclick = function () {
     var logo = document.getElementById('logo');
     logo.style.display = (logo.style.display === 'none') ? 'block' : 'none';
 };
+// --------------------------------------------------------------------
 // Bouton pour la capture Écran
+// --------------------------------------------------------------------
 document.getElementById('screenshotBtn').addEventListener('click', function () {
     console.log('capture écran ...')
     menuactif = true;
