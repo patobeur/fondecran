@@ -6,38 +6,61 @@ let menuElem = document.getElementById('menu')
 let logo = document.getElementById('logoimage')
 
 document.onclick = function (event) {
-    if (event.target.id === 'html' || event.target.id === 'options' || event.target === document.body) {
-        menuactif = !menuactif
-        menuactif ? menuElem.classList.remove('hidden') : menuElem.classList.add('hidden');
-    }
+	if (event.target.id === 'html' || event.target.id === 'options' || event.target === document.body) {
+		menuactif = !menuactif
+		menuactif ? menuElem.classList.remove('hidden') : menuElem.classList.add('hidden');
+	}
 };
 document.getElementById('background-select').onchange = function () {
-    var selectedValue = document.getElementById('background-select').value;
-    document.body.style.background = 'var(' + selectedValue + ')';
+	var selectedValue = document.getElementById('background-select').value;
+	document.body.style.background = 'var(' + selectedValue + ')';
 };
 
 // --------------------------------------------------------------------
 // largeur du logo en pixel
 // --------------------------------------------------------------------
 document.getElementById('width-logo').onchange = function () {
-    var logoWidth = document.getElementById('width-logo').value;
-    if (!isNaN(logoWidth) && logoWidth !== '' && logoWidth > 0) {
-        document.querySelector('img[alt="brand logo"]').style.width = logoWidth + 'px';
-    } else {
-        alert('Veuillez entrer une valeur numérique positive pour la largeur.');
-    }
+	var logoWidth = document.getElementById('width-logo').value;
+	if (!isNaN(logoWidth) && logoWidth !== '' && logoWidth > 0) {
+		document.querySelector('img[alt="brand logo"]').style.width = logoWidth + 'px';
+	} else {
+		alert('Veuillez entrer une valeur numérique positive pour la largeur.');
+	}
 };
 
 // --------------------------------------------------------------------
 // margin du logo
 // --------------------------------------------------------------------
-document.getElementById('margin-logo').onchange = function () {
-    var logoMargin = document.getElementById('margin-logo').value;
-    if (!isNaN(logoMargin) && logoMargin !== '') {
-        document.querySelector('img[alt="brand logo"]').style.margin = logoMargin + 'px';
-    } else {
-        alert('Veuillez entrer une valeur numérique pour la marge.');
-    }
+// document.getElementById('margin-logo').onchange = function () {
+// 	var logoMargin = document.getElementById('margin-logo').value;
+// 	if (!isNaN(logoMargin) && logoMargin !== '') {
+// 		document.querySelector('img[alt="brand logo"]').style.margin = logoMargin + 'px';
+// 	} else {
+// 		alert('Veuillez entrer une valeur numérique pour la marge.');
+// 	}
+// };
+
+// --------------------------------------------------------------------
+// margin-top du logo
+// --------------------------------------------------------------------
+document.getElementById('margin-top-logo').onchange = function () {
+	var logoMarginTop = document.getElementById('margin-top-logo').value;
+	if (!isNaN(logoMarginTop) && logoMarginTop !== '') {
+		document.querySelector('img[alt="brand logo"]').style.marginTop = logoMarginTop + 'px';
+	} else {
+		alert('Veuillez entrer une valeur numérique pour la marge au dessus.');
+	}
+};
+// --------------------------------------------------------------------
+// margin-left du logo
+// --------------------------------------------------------------------
+document.getElementById('margin-left-logo').onchange = function () {
+	var logoMarginLeft = document.getElementById('margin-left-logo').value;
+	if (!isNaN(logoMarginLeft) && logoMarginLeft !== '') {
+		document.querySelector('img[alt="brand logo"]').style.marginLeft = logoMarginLeft + 'px';
+	} else {
+		alert('Veuillez entrer une valeur numérique pour la marge de gauche.');
+	}
 };
 
 // --------------------------------------------------------------------
@@ -47,74 +70,74 @@ var dropZone = document.getElementById('drop-zone');
 var dropZoneLogo = document.getElementById('drop-zone-logo');
 
 dropZone.ondragover = function (event) {
-    event.preventDefault();
-    this.style.borderColor = 'green';
+	event.preventDefault();
+	this.style.borderColor = 'green';
 };
 dropZone.ondragleave = function (event) {
-    this.style.borderColor = '#ccc';
+	this.style.borderColor = '#ccc';
 };
 dropZone.ondrop = function (event) {
-    event.preventDefault();
-    this.style.borderColor = '#ccc';
-    var files = event.dataTransfer.files;
-    if (files.length > 0) {
-        var fileReader = new FileReader();
-        fileReader.onload = function (event) {
-            document.body.style.backgroundImage = 'url(' + event.target.result + ')';
-        };
-        fileReader.readAsDataURL(files[0]);
-    }
+	event.preventDefault();
+	this.style.borderColor = '#ccc';
+	var files = event.dataTransfer.files;
+	if (files.length > 0) {
+		var fileReader = new FileReader();
+		fileReader.onload = function (event) {
+			document.body.style.backgroundImage = 'url(' + event.target.result + ')';
+		};
+		fileReader.readAsDataURL(files[0]);
+	}
 };
 dropZoneLogo.ondragover = function (event) {
-    event.preventDefault();
-    this.style.borderColor = 'green';
+	event.preventDefault();
+	this.style.borderColor = 'green';
 };
 dropZoneLogo.ondragleave = function (event) {
-    this.style.borderColor = '#ccc';
+	this.style.borderColor = '#ccc';
 };
 dropZoneLogo.ondrop = function (event) {
-    event.preventDefault();
-    this.style.borderColor = '#ccc';
-    var files = event.dataTransfer.files;
-    if (files.length > 0) {
-        var fileReader = new FileReader();
-        fileReader.onload = function (event) {
-            console.log(logo)
-            logo.src = event.target.result
-            console.log(event)
-        };
-        fileReader.readAsDataURL(files[0]);
-    }
+	event.preventDefault();
+	this.style.borderColor = '#ccc';
+	var files = event.dataTransfer.files;
+	if (files.length > 0) {
+		var fileReader = new FileReader();
+		fileReader.onload = function (event) {
+			console.log(logo)
+			logo.src = event.target.result
+			console.log(event)
+		};
+		fileReader.readAsDataURL(files[0]);
+	}
 };
 
 // --------------------------------------------------------------------
 // Bouton pour supprimer l'image de fond
 // --------------------------------------------------------------------
 document.getElementById('remove-background').onclick = function () {
-    document.body.style.backgroundImage = '';
+	document.body.style.backgroundImage = '';
 };
 // --------------------------------------------------------------------
 // Bouton pour ne pas aficher le logo ???
 // --------------------------------------------------------------------
 document.getElementById('toggle-logo').onclick = function () {
-    var logo = document.getElementById('logo');
-    logo.style.display = (logo.style.display === 'none') ? 'block' : 'none';
+	var logo = document.getElementById('logo');
+	logo.style.display = (logo.style.display === 'none') ? 'block' : 'none';
 };
 // --------------------------------------------------------------------
 // Bouton pour la capture Écran
 // --------------------------------------------------------------------
 document.getElementById('screenshotBtn').addEventListener('click', function () {
-    console.log('capture écran ...')
-    menuactif = true;
-    menuElem.classList.add('hidden');
-    html2canvas(document.body).then(function (canvas) {
-        // Convertir le canvas en une image
-        var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+	console.log('capture écran ...')
+	menuactif = true;
+	menuElem.classList.add('hidden');
+	html2canvas(document.body).then(function (canvas) {
+		// Convertir le canvas en une image
+		var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
 
-        // Créer un lien pour télécharger l'image
-        var link = document.createElement('a');
-        link.download = 'capture-decran.png';
-        link.href = image;
-        link.click();
-    });
+		// Créer un lien pour télécharger l'image
+		var link = document.createElement('a');
+		link.download = 'capture-decran.png';
+		link.href = image;
+		link.click();
+	});
 });

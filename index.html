@@ -40,13 +40,19 @@
 						<option value="--wp--preset--color--pale-cyan-blue">Bleu cyan pâle</option>
 						<option value="--wp--preset--color--vivid-cyan-blue">Cyan bleu vif</option>
 						<option value="--wp--preset--color--vivid-purple">Violet vif</option>
-						<option value="--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple">Dégradé de cyan bleu vif à violet vif</option>
-						<option value="--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan">Dégradé de vert cyan clair à vert cyan vif</option>
-						<option value="--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange">Dégradé d'ambre vif lumineux à orange vif lumineux</option>
-						<option value="--wp--preset--gradient--luminous-vivid-orange-to-vivid-red">Dégradé d'orange vif lumineux à rouge vif</option>
-						<option value="--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray">Dégradé de gris très clair à gris bleu cyan</option>
+						<option value="--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple">Dégradé de cyan bleu vif
+							à violet vif</option>
+						<option value="--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan">Dégradé de vert
+							cyan clair à vert cyan vif</option>
+						<option value="--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange">Dégradé
+							d'ambre vif lumineux à orange vif lumineux</option>
+						<option value="--wp--preset--gradient--luminous-vivid-orange-to-vivid-red">Dégradé d'orange vif
+							lumineux à rouge vif</option>
+						<option value="--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray">Dégradé de gris très
+							clair à gris bleu cyan</option>
 						<option value="--wp--preset--gradient--cool-to-warm-spectrum">Spectre de froid à chaud</option>
-						<option value="--wp--preset--gradient--blush-light-purple">Dégradé de rose clair à violet</option>
+						<option value="--wp--preset--gradient--blush-light-purple">Dégradé de rose clair à violet
+						</option>
 						<option value="--wp--preset--gradient--blush-bordeaux">Dégradé de blush à bordeaux</option>
 						<option value="--wp--preset--gradient--luminous-dusk">Crépuscule lumineux</option>
 						<option value="--wp--preset--gradient--pale-ocean">Océan pâle</option>
@@ -69,12 +75,28 @@
 						</div>
 					</div>
 
-					<!-- Marge et Largeur logo -->
 					<div class="parts">
-						<div class="row">
+
+						<!-- Marge du logo -->
+						<!-- <div class="row">
 							<label for="margin-logo">Marge autour du logo en px</label>
 							<input id="margin-logo" type="number" value="5"
 								oninvalid="this.setCustomValidity('Entrez une valeur numérique pour la marge.')"
+								oninput="this.setCustomValidity('')">
+						</div> -->
+
+						<!-- margin-left logo -->
+						<div class="row">
+							<label for="margin-left-logo">Marge à gauche du logo (margin-left)</label>
+							<input id="margin-left-logo" type="number" value="5"
+								oninvalid="this.setCustomValidity('Entrez une valeur numérique pour la marge du haut.')"
+								oninput="this.setCustomValidity('')">
+						</div>
+						<!-- margin-top logo -->
+						<div class="row">
+							<label for="margin-top-logo">Marge au dessus du logo (margin-top)</label>
+							<input id="margin-top-logo" type="number" value="5"
+								oninvalid="this.setCustomValidity('Entrez une valeur numérique pour la marge du haut.')"
 								oninput="this.setCustomValidity('')">
 						</div>
 
