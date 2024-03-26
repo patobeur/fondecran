@@ -2,6 +2,10 @@
 
 Bienvenue dans la documentation détaillée de notre outil de capture d'écran. Cet outil est conçu pour vous offrir une flexibilité maximale dans la création de captures d'écran personnalisées, en vous permettant de déplacer le logo, de choisir un fond spécifique, et/ou image de fond et enfin faire une image du tout. Voici comment vous pouvez tirer pleinement parti de ses fonctionnalités.
 
+
+[TEST] : `https://patobeur.github.io/fondecran/`
+
+
 ## Fonctionnalités Principales
 
 ### Sélection de la Couleur de Fond
@@ -32,3 +36,4 @@ Bienvenue dans la documentation détaillée de notre outil de capture d'écran. 
 ### texte -> Conseils d'Utilisation
 
 - Pour des résultats optimaux, nous vous recommandons de passer en plein écran avant de capturer votre écran. Cela garantit que la capture d'écran englobe toute la zone souhaitée sans éléments indésirables.
+
