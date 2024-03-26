@@ -2,6 +2,8 @@
 // let h = 1200; // hauteur en pixel de la capture écran
 let logoctif = true;
 let menuactif = true;
+let defaultbgimagefilename = 'capture_ecran'
+let imagefilename = 'capture_ecran'
 let menuElem = document.getElementById('menu')
 let logo = document.getElementById('logoimage')
 
@@ -66,17 +68,17 @@ document.getElementById('margin-left-logo').onchange = function () {
 // --------------------------------------------------------------------
 // dropZone pour ajouter l'image en arrière plan du body
 // --------------------------------------------------------------------
-var dropZone = document.getElementById('drop-zone');
+var dropZoneBgImage = document.getElementById('drop-zone-bg-image');
 var dropZoneLogo = document.getElementById('drop-zone-logo');
 
-dropZone.ondragover = function (event) {
+dropZoneBgImage.ondragover = function (event) {
 	event.preventDefault();
 	this.style.borderColor = 'green';
 };
-dropZone.ondragleave = function (event) {
+dropZoneBgImage.ondragleave = function (event) {
 	this.style.borderColor = '#ccc';
 };
-dropZone.ondrop = function (event) {
+dropZoneBgImage.ondrop = function (event) {
 	event.preventDefault();
 	this.style.borderColor = '#ccc';
 	var files = event.dataTransfer.files;

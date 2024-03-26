@@ -64,19 +64,18 @@
 				<!-- Afficher/Masquer logo -->
 				<div class="parts">
 					<h2>Le Logo</h2>
-					<div class="row">
-						<p>Afficher le logo: </p>
-						<div class="interupteur">
-							<div class="trigger rond" id="display-logo">
-								<input type="checkbox" class="checkbox" id="toggle-logo" />
-								<div class="point"></div>
-								<div class="cartouche"></div>
-							</div>
-						</div>
-					</div>
 
 					<div class="parts">
 
+					</div>
+
+					<!-- image logo -->
+					<div class="parts">
+						<h2>Logo</h2>
+						<p>Ajouter un logo en le glissant dans la zone en pointillées ci dessous !</p>
+						<div id="drop-zone-logo">
+							Glissez une image ici pour l'utiliser comme logo
+						</div>
 						<!-- Marge du logo -->
 						<!-- <div class="row">
 							<label for="margin-logo">Marge autour du logo en px</label>
@@ -85,6 +84,16 @@
 								oninput="this.setCustomValidity('')">
 						</div> -->
 
+						<div class="row">
+							<p>Afficher le logo: </p>
+							<div class="interupteur">
+								<div class="trigger rond" id="display-logo">
+									<input type="checkbox" class="checkbox" id="toggle-logo" />
+									<div class="point"></div>
+									<div class="cartouche"></div>
+								</div>
+							</div>
+						</div>
 						<!-- margin-left logo -->
 						<div class="row">
 							<label for="margin-left-logo">Marge à gauche du logo (margin-left)</label>
@@ -108,18 +117,10 @@
 						</div>
 					</div>
 
-					<!-- image logo -->
-					<div class="parts">
-						<h2>Logo</h2>
-						<div id="drop-zone-logo">
-							Glissez une image ici pour l'utiliser comme logo
-						</div>
-					</div>
-
 					<!-- image de fond -->
 					<div class="parts">
 						<h2>Image de fond</h2>
-						<div id="drop-zone">
+						<div id="drop-zone-bg-image">
 							Glissez une image ici pour l'utiliser comme fond d'écran
 						</div>
 						<div class="column">
@@ -135,6 +136,15 @@
 						</p>
 						<p>Cela facilitera vos captures d'écran !</p>
 
+						<!-- nom du fichier téléchargé -->
+						<div class="row">
+							<label for="bg-image-name">Nom du fichier téléchargé.</label>
+							<input id="bg-image-name" type="text" value="capture-ecran"
+								oninvalid="this.setCustomValidity('Entrez du texte.')"
+								oninput="this.setCustomValidity('')">
+						</div>
+
+						<!-- boutton de  téléchargement -->
 						<div class="column">
 							<button id="screenshotBtn" class="trigger-action">Prendre une capture d'écran</button>
 						</div>

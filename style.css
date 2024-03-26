@@ -43,6 +43,7 @@ body {
     background: var(--wp--preset--color--vivid-green-cyan);
     background-repeat: repeat;
     background-size: cover;
+	background-position: center center;
     color: white;
     font-size: 1rem;
     font-weight: 400;
@@ -116,7 +117,7 @@ body {
         }
 
 
-        #drop-zone,
+        #drop-zone-bg-image,
         #drop-zone-logo {
             width: 80%;
             height: 100px;
