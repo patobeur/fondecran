@@ -6,14 +6,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>selection de couleur</title>
 		<script src="vendor/html2canvas.min.js"></script>
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="/assets/style.css">
+
+		<script src="/assets/main.js"></script>
 	</head>
 
 	<body id="body">
 
-		<figure id="logo">
-			<img id="logoimage" src="logo.png" alt="brand logo" width="160px" height="auto">
-		</figure>
+		<img id="logoimage" src="/assets/logo.png" alt="brand logo" width="160px" height="auto">
+
 
 
 		<section id="options">
@@ -62,58 +63,58 @@
 				</div>
 
 				<!-- Afficher/Masquer logo -->
-					<!-- image logo -->
-					<div class="parts">
-						<h2>Logo</h2>
-						<p>Ajouter un logo en le glissant dans la zone en pointillées ci dessous !</p>
-						<div id="drop-zone-logo">
-							Glissez une image ici pour l'utiliser comme logo
-						</div>
-						<!-- Marge du logo -->
-						<!-- <div class="row">
+				<!-- image logo -->
+				<div class="parts">
+					<h2>Logo</h2>
+					<p>Ajouter un logo en le glissant dans la zone en pointillées ci dessous !</p>
+					<div id="drop-zone-logo">
+						Glissez une image ici pour l'utiliser comme logo
+					</div>
+					<!-- Marge du logo -->
+					<!-- <div class="row">
 							<label for="margin-logo">Marge autour du logo en px</label>
 							<input id="margin-logo" type="number" value="5"
 								oninvalid="this.setCustomValidity('Entrez une valeur numérique pour la marge.')"
 								oninput="this.setCustomValidity('')">
 						</div> -->
 
-						<div class="row">
-							<p>Afficher le logo: </p>
-							<div class="interupteur">
-								<div class="trigger rond" id="display-logo">
-									<input type="checkbox" class="checkbox" id="toggle-logo" />
-									<div class="point"></div>
-									<div class="cartouche"></div>
-								</div>
+					<div class="row">
+						<p>Afficher le logo: </p>
+						<div class="interupteur">
+							<div class="trigger rond" id="display-logo">
+								<input type="checkbox" class="checkbox" id="toggle-logo" />
+								<div class="point"></div>
+								<div class="cartouche"></div>
 							</div>
 						</div>
-						<!-- margin-left logo -->
-						<div class="row">
-							<label for="margin-left-logo">Marge à gauche du logo (margin-left)</label>
-							<input id="margin-left-logo" type="number" value="5"
-								oninvalid="this.setCustomValidity('Entrez une valeur numérique pour la marge du haut.')"
-								oninput="this.setCustomValidity('')">
-						</div>
-						<!-- margin-top logo -->
-						<div class="row">
-							<label for="margin-top-logo">Marge au dessus du logo (margin-top)</label>
-							<input id="margin-top-logo" type="number" value="5"
-								oninvalid="this.setCustomValidity('Entrez une valeur numérique pour la marge du haut.')"
-								oninput="this.setCustomValidity('')">
-						</div>
-
-						<div class="row">
-							<label for="width-logo">Largeur du logo en px (hauteur auto)</label>
-							<input id="width-logo" type="number" value="160"
-								oninvalid="this.setCustomValidity('Entrez une valeur numérique pour la largeur.')"
-								oninput="this.setCustomValidity('')">
-						</div>
-
+					</div>
+					<!-- margin-left logo -->
+					<div class="row">
+						<label for="margin-left-logo">Marge à gauche du logo (margin-left)</label>
+						<input id="margin-left-logo" type="number" value="5"
+							oninvalid="this.setCustomValidity('Entrez une valeur numérique pour la marge du haut.')"
+							oninput="this.setCustomValidity('')">
+					</div>
+					<!-- margin-top logo -->
+					<div class="row">
+						<label for="margin-top-logo">Marge au dessus du logo (margin-top)</label>
+						<input id="margin-top-logo" type="number" value="5"
+							oninvalid="this.setCustomValidity('Entrez une valeur numérique pour la marge du haut.')"
+							oninput="this.setCustomValidity('')">
 					</div>
 
+					<div class="row">
+						<label for="width-logo">Largeur du logo en px (hauteur auto)</label>
+						<input id="width-logo" type="number" value="160"
+							oninvalid="this.setCustomValidity('Entrez une valeur numérique pour la largeur.')"
+							oninput="this.setCustomValidity('')">
+					</div>
+
+				</div>
 
 
-					<!-- <div class="row">
+
+				<!-- <div class="row">
 						<p>Afficher le logo: </p>
 						<div class="interupteur">
 							<div class="trigger rond" id="display-logo">
@@ -124,8 +125,8 @@
 						</div>
 					</div> -->
 
-					<!-- Marge et Largeur logo -->
-					<!-- <div class="parts">
+				<!-- Marge et Largeur logo -->
+				<!-- <div class="parts">
 						<div class="row">
 							<label for="margin-logo">Marge autour du logo en px</label>
 							<input id="margin-logo" type="number" value="5"
@@ -141,8 +142,8 @@
 						</div>
 					</div> -->
 
-					<!-- image logo -->
-					<!-- <div class="parts">
+				<!-- image logo -->
+				<!-- <div class="parts">
 						<h2>Logo</h2>
 						<div id="drop-zone-logo">
 							Glissez une image ici pour l'utiliser comme logo
@@ -152,42 +153,42 @@
 
 
 
-					<!-- image de fond -->
-					<div class="parts">
-						<h2>Image de fond</h2>
-						<p>Vous ne verrez plus la couleur du fond si une image est ajoutée.</p>
-						<div id="drop-zone-bg-image">
-							Glissez une image ici pour l'utiliser comme fond d'écran
-						</div>
-						<div class="column">
-							<button id="remove-background" class="trigger-action">Supprimer l'image de fond</button>
-						</div>
+				<!-- image de fond -->
+				<div class="parts">
+					<h2>Image de fond</h2>
+					<p>Vous ne verrez plus la couleur du fond si une image est ajoutée.</p>
+					<div id="drop-zone-bg-image">
+						Glissez une image ici pour l'utiliser comme fond d'écran
+					</div>
+					<div class="column">
+						<button id="remove-background" class="trigger-action">Supprimer l'image de fond</button>
+					</div>
+				</div>
+
+				<!-- Download Genaration de l'image -->
+				<div class="parts">
+
+					<h2>Informations</h2>
+					<p>Afin que votre image fasse la bonne taille, appuyer sur [F11] pour passer en pleine écran.
+					</p>
+					<p>Cela facilitera vos captures d'écran !</p>
+
+					<!-- nom du fichier téléchargé -->
+					<div class="row">
+						<label for="bg-image-name">Nom du fichier téléchargé. (pas enore actif)</label>
+						<input id="bg-image-name" disable type="text" value="capture-ecran"
+							oninvalid="this.setCustomValidity('Entrez du texte.')" oninput="this.setCustomValidity('')">
 					</div>
 
-					<!-- Download Genaration de l'image -->
-					<div class="parts">
-
-						<h2>Informations</h2>
-						<p>Afin que votre image fasse la bonne taille, appuyer sur [F11] pour passer en pleine écran.
-						</p>
-						<p>Cela facilitera vos captures d'écran !</p>
-
-						<!-- nom du fichier téléchargé -->
-						<div class="row">
-							<label for="bg-image-name">Nom du fichier téléchargé. (pas enore actif)</label>
-							<input id="bg-image-name" disable type="text" value="capture-ecran"
-								oninvalid="this.setCustomValidity('Entrez du texte.')"
-								oninput="this.setCustomValidity('')">
-						</div>
-
-						<div id="wsize">
-							La taille de la capture est égale à la taille de la fenêtre: <span id="ww"></span>/<span id="wh"></span>
-						</div>
-						<!-- boutton de  téléchargement -->
-						<div class="column">
-							<button id="screenshotBtn" class="trigger-action">Prendre une capture d'écran</button>
-						</div>
+					<div id="wsize">
+						La taille de la capture est égale à la taille de la fenêtre: <span id="ww"></span>/<span
+							id="wh"></span>
 					</div>
+					<!-- boutton de  téléchargement -->
+					<div class="column">
+						<button id="screenshotBtn" class="trigger-action">Prendre une capture d'écran</button>
+					</div>
+				</div>
 
 
 
@@ -219,7 +220,6 @@
 		</section>
 
 
-		<script src="main.js"></script>
 	</body>
 
 </html>
