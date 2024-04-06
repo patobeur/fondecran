@@ -1,31 +1,37 @@
 
-
+console.log(Date())
 
 function updateWindowSize() {
 	var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 	var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 
-	document.getElementById('ww').textContent = width + 'px';
-	document.getElementById('wh').textContent = height + 'px';
+	document.getElementById('ww').textContent = width;
+	document.getElementById('wh').textContent = height;
 }
 function initialisation() {
 	// let w = 1920; // largeur en pixel de la captur écran
 	// let h = 1200; // hauteur en pixel de la capture écran
-	let logoctif = true;
+	// let logoctif = true;
 	let menuactif = true;
-	let defaultbgimagefilename = 'capture_ecran'
-	let imagefilename = 'capture_ecran'
+	// let defaultbgimagefilename = 'capture_ecran'
+	// let imagefilename = 'capture_ecran'
 	let menuElem = document.getElementById('menu')
 	let logo = document.getElementById('logoimage')
-
+	// let close = document.getElementById('close')
+	let zonelogo = document.getElementById('zonelogo')
+	let zonebackground = document.getElementById('zonebackground')
+	let zonebgimage = document.getElementById('drop-zone-bg-image')
+	// var zonebgimage = document.getElementById('drop-zone-bg-image');
+	// var zonelogo = document.getElementById('drop-zone-logo');
 
 	// --------------------------------------------------------------------
 	// Affichage du menu option lors du click
 	// --------------------------------------------------------------------
 	document.onclick = function (event) {
-		if (event.target.id === 'html' || event.target.id === 'options' || event.target.id === 'body') {
+		if (event.target.id === 'html' || event.target.id === 'options' || event.target.id === 'body' || event.target.id === 'close') {
 			menuactif = !menuactif
 			menuactif ? menuElem.classList.remove('hidden') : menuElem.classList.add('hidden');
+			menuactif ? document.body.classList.remove('zoom-in') : document.body.classList.add('zoom-in');
 		}
 	};
 	// --------------------------------------------------------------------
@@ -75,35 +81,17 @@ function initialisation() {
 	};
 
 	// --------------------------------------------------------------------
-	// margin du logo
-	// --------------------------------------------------------------------
-	// document.getElementById('margin-logo').onchange = function () {
-	//     var logoMargin = document.getElementById('margin-logo').value;
-	//     if (!isNaN(logoMargin) && logoMargin !== '') {
-	//         document.querySelector('img[alt="brand logo"]').style.margin = logoMargin + 'px';
-	//     } else {
-	//         alert('Veuillez entrer une valeur numérique pour la marge.');
-	//     }
-	// };
-
-	// --------------------------------------------------------------------
 	// dropZone pour ajouter l'image en arrière plan du body
 	// --------------------------------------------------------------------
 
-	// --------------------------------------------------------------------
-	// dropZone pour ajouter l'image en arrière plan du body
-	// --------------------------------------------------------------------
-	var dropZoneBgImage = document.getElementById('drop-zone-bg-image');
-	var dropZoneLogo = document.getElementById('drop-zone-logo');
-
-	dropZoneBgImage.ondragover = function (event) {
+	zonebgimage.ondragover = function (event) {
 		event.preventDefault();
 		this.style.borderColor = 'green';
 	};
-	dropZoneBgImage.ondragleave = function (event) {
+	zonebgimage.ondragleave = function (event) {
 		this.style.borderColor = '#ccc';
 	};
-	dropZoneBgImage.ondrop = function (event) {
+	zonebgimage.ondrop = function (event) {
 		event.preventDefault();
 		this.style.borderColor = '#ccc';
 		var files = event.dataTransfer.files;
@@ -111,18 +99,21 @@ function initialisation() {
 			var fileReader = new FileReader();
 			fileReader.onload = function (event) {
 				document.body.style.backgroundImage = 'url(' + event.target.result + ')';
+				zonebackground.style.display = 'flex';
+				zonebgimage.style.display = 'none';
+
 			};
 			fileReader.readAsDataURL(files[0]);
 		}
 	};
-	dropZoneLogo.ondragover = function (event) {
+	zonelogo.ondragover = function (event) {
 		event.preventDefault();
 		this.style.borderColor = 'green';
 	};
-	dropZoneLogo.ondragleave = function (event) {
+	zonelogo.ondragleave = function (event) {
 		this.style.borderColor = '#ccc';
 	};
-	dropZoneLogo.ondrop = function (event) {
+	zonelogo.ondrop = function (event) {
 		event.preventDefault();
 		this.style.borderColor = '#ccc';
 		var files = event.dataTransfer.files;
@@ -133,7 +124,7 @@ function initialisation() {
 				logo.src = event.target.result
 				console.log(event)
 			};
-			fileReader.readAsDataURL(files[0]);
+			fileReader.readAsDataURL(files[0])
 		}
 	};
 
@@ -141,13 +132,16 @@ function initialisation() {
 	// Bouton pour supprimer l'image de fond
 	// --------------------------------------------------------------------
 	document.getElementById('remove-background').onclick = function () {
-		document.body.style.backgroundImage = '';
+		document.body.style.backgroundImage = ''
+		zonebackground.style.display = ''
+		zonebgimage.style.display = 'flex'
 	};
 	// --------------------------------------------------------------------
 	// Bouton pour ne pas aficher le logo ???
 	// --------------------------------------------------------------------
 	document.getElementById('toggle-logo').onclick = function () {
 		logo.style.display = (logo.style.display === 'none') ? 'block' : 'none';
+		zonelogo.style.display = (logo.style.display === 'none') ? 'none' : 'block';
 	};
 	// --------------------------------------------------------------------
 	// Bouton pour la capture Écran

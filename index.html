@@ -6,25 +6,18 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>selection de couleur</title>
 		<script src="vendor/html2canvas.min.js"></script>
-		<link rel="stylesheet" href="/assets/style.css">
+		<link rel="stylesheet" href="assets/style.css">
 
-		<script src="/assets/main.js"></script>
+		<script src="assets/main.js"></script>
 	</head>
 
 	<body id="body">
-
-		<img id="logoimage" src="/assets/logo.png" alt="brand logo" width="160px" height="auto">
-
-
-
+		<img id="logoimage" src="assets/logo.png" alt="brand logo" width="160px" height="auto">
 		<section id="options">
-
 			<div id="menu">
-
 				<div class="parts">
 					<h1>Outils: Fond'Écran</h1>
 				</div>
-
 				<div class="parts">
 					<h2>Couleurs du fond</h2>
 					<label for="background-select">Sélectionnez votre couleurs dans la liste !</label>
@@ -61,23 +54,10 @@
 						<option value="--wp--preset--gradient--midnight">Minuit</option>
 					</select>
 				</div>
-
-				<!-- Afficher/Masquer logo -->
 				<!-- image logo -->
 				<div class="parts">
 					<h2>Logo</h2>
-					<p>Ajouter un logo en le glissant dans la zone en pointillées ci dessous !</p>
-					<div id="drop-zone-logo">
-						Glissez une image ici pour l'utiliser comme logo
-					</div>
-					<!-- Marge du logo -->
-					<!-- <div class="row">
-							<label for="margin-logo">Marge autour du logo en px</label>
-							<input id="margin-logo" type="number" value="5"
-								oninvalid="this.setCustomValidity('Entrez une valeur numérique pour la marge.')"
-								oninput="this.setCustomValidity('')">
-						</div> -->
-
+					<!-- Afficher/Masquer logo -->
 					<div class="row">
 						<p>Afficher le logo: </p>
 						<div class="interupteur">
@@ -88,135 +68,95 @@
 							</div>
 						</div>
 					</div>
-					<!-- margin-left logo -->
-					<div class="row">
-						<label for="margin-left-logo">Marge à gauche du logo (margin-left)</label>
-						<input id="margin-left-logo" type="number" value="5"
-							oninvalid="this.setCustomValidity('Entrez une valeur numérique pour la marge du haut.')"
-							oninput="this.setCustomValidity('')">
-					</div>
-					<!-- margin-top logo -->
-					<div class="row">
-						<label for="margin-top-logo">Marge au dessus du logo (margin-top)</label>
-						<input id="margin-top-logo" type="number" value="5"
-							oninvalid="this.setCustomValidity('Entrez une valeur numérique pour la marge du haut.')"
-							oninput="this.setCustomValidity('')">
-					</div>
-
-					<div class="row">
-						<label for="width-logo">Largeur du logo en px (hauteur auto)</label>
-						<input id="width-logo" type="number" value="160"
-							oninvalid="this.setCustomValidity('Entrez une valeur numérique pour la largeur.')"
-							oninput="this.setCustomValidity('')">
-					</div>
-
-				</div>
-
-
-
-				<!-- <div class="row">
-						<p>Afficher le logo: </p>
-						<div class="interupteur">
-							<div class="trigger rond" id="display-logo">
-								<input type="checkbox" class="checkbox" id="toggle-logo" />
-								<div class="point"></div>
-								<div class="cartouche"></div>
-							</div>
-						</div>
-					</div> -->
-
-				<!-- Marge et Largeur logo -->
-				<!-- <div class="parts">
-						<div class="row">
-							<label for="margin-logo">Marge autour du logo en px</label>
-							<input id="margin-logo" type="number" value="5"
-								oninvalid="this.setCustomValidity('Entrez une valeur numérique pour la marge.')"
-								oninput="this.setCustomValidity('')">
-						</div>
-
-						<div class="row">
-							<label for="width-logo">Largeur du logo en px (hauteur auto)</label>
-							<input id="width-logo" type="number" value="160"
-								oninvalid="this.setCustomValidity('Entrez une valeur numérique pour la largeur.')"
-								oninput="this.setCustomValidity('')">
-						</div>
-					</div> -->
-
-				<!-- image logo -->
-				<!-- <div class="parts">
-						<h2>Logo</h2>
+					<div id="zonelogo" class="col">
+						<p>Ajouter un logo en le glissant dans la zone en pointillées ci dessous !</p>
 						<div id="drop-zone-logo">
 							Glissez une image ici pour l'utiliser comme logo
 						</div>
-					</div> -->
+						<!-- margin-left logo -->
+						<h2>Options</h2>
+						<div class="row">
+							<label for="margin-left-logo">Marge à gauche du logo</label>
+							<input class="cart" id="margin-left-logo" type="number" value="5"
+								oninvalid="this.setCustomValidity('Entrez une valeur numérique pour la marge du haut.')"
+								oninput="this.setCustomValidity('')">
+						</div>
+						<!-- margin-top logo -->
+						<div class="row">
+							<label for="margin-top-logo">Marge au dessus du logo</label>
+							<input class="cart" id="margin-top-logo" type="number" value="5"
+								oninvalid="this.setCustomValidity('Entrez une valeur numérique pour la marge du haut.')"
+								oninput="this.setCustomValidity('')">
+						</div>
 
-
-
-
+						<div class="row">
+							<label for="width-logo">Largeur du logo en px</label>
+							<input class="cart" id="width-logo" type="number" value="160"
+								oninvalid="this.setCustomValidity('Entrez une valeur numérique pour la largeur.')"
+								oninput="this.setCustomValidity('')">
+						</div>
+					</div>
+				</div>
 				<!-- image de fond -->
 				<div class="parts">
 					<h2>Image de fond</h2>
-					<p>Vous ne verrez plus la couleur du fond si une image est ajoutée.</p>
 					<div id="drop-zone-bg-image">
-						Glissez une image ici pour l'utiliser comme fond d'écran
+						Glissez une image ici pour l'utiliser comme fond d'écran<br>Vous ne verrez plus la couleur du
+						fond si une image est ajoutée.
 					</div>
-					<div class="column">
+					<div id="zonebackground" class="column">
 						<button id="remove-background" class="trigger-action">Supprimer l'image de fond</button>
 					</div>
 				</div>
-
 				<!-- Download Genaration de l'image -->
 				<div class="parts">
-
-					<h2>Informations</h2>
+					<h2>Actions</h2>
 					<p>Afin que votre image fasse la bonne taille, appuyer sur [F11] pour passer en pleine écran.
 					</p>
 					<p>Cela facilitera vos captures d'écran !</p>
-
-					<!-- nom du fichier téléchargé -->
-					<div class="row">
-						<label for="bg-image-name">Nom du fichier téléchargé. (pas enore actif)</label>
-						<input id="bg-image-name" disable type="text" value="capture-ecran"
-							oninvalid="this.setCustomValidity('Entrez du texte.')" oninput="this.setCustomValidity('')">
-					</div>
-
-					<div id="wsize">
-						La taille de la capture est égale à la taille de la fenêtre: <span id="ww"></span>/<span
-							id="wh"></span>
-					</div>
 					<!-- boutton de  téléchargement -->
 					<div class="column">
 						<button id="screenshotBtn" class="trigger-action">Prendre une capture d'écran</button>
 					</div>
 				</div>
-
-
-
+				<div class="parts">
+					<!-- nom du fichier téléchargé -->
+					<h2>Options</h2>
+					<div class="row">
+						<label for="bg-image-name">Nom du fichier téléchargé. (pas encore actif)</label>
+						<input class="cart" id="bg-image-name" disable type="text" value="capture-ecran"
+							oninvalid="this.setCustomValidity('Entrez du texte.')" oninput="this.setCustomValidity('')">
+					</div>
+				</div>
+				<div class="parts">
+					<h2>Informations sur l'image générée !</h2>
+					<div id="wsize">
+						Taille en pixel (égale à la taille de la fenêtre): <br /><span id="ww"></span><span
+							id="inter">x</span><span id="wh">y</span> pixels.
+					</div>
+				</div>
 				<div class="footer-pop">
 					<p class="alerteinfo">Avis Important Concernant les Droits et les Lois</p>
-					<p>Avant d'utiliser cet outil pour générer et personnaliser des captures d'écran, il est
-						crucial de comprendre et de respecter les droits d'auteur et les lois en vigueur liées à
-						l'utilisation de contenus numériques. En utilisant cet outil, vous vous engagez à ne pas
-						enfreindre les droits d'auteur ou les marques déposées appartenant à des tiers. </p>
-					<p>Il est de votre responsabilité de vous assurer que le contenu capturé et les logos ou
-						images
-						ajoutés ne violent pas les droits de propriété intellectuelle d'autres parties. De plus,
-						toute manipulation d'images ou de contenus doit être effectuée dans le respect des lois
-						applicables, y ompris, mais sans s'y limiter, les lois sur la diffamation, la vie privée
-						et
-						l'image publique.</p>
-					<p>Utiliser des images ou des logos sans autorisation peut avoir des conséquences légales
-						sérieuses, incluant des poursuites judiciaires pour violation de droits d'auteur. Nous
-						encourageons vivement tous les utilisateurs à procéder à une vérification diligente et à
-						obtenir les permissions nécessaires avant d'utiliser des contenus protégés par des
-						droits
-						d'auteur ou des marques. </p>
-					<p>Cet outil est conçu pour faciliter la création et la personnalisation de contenus dans n
-						cadre légal et éthique. Votre utilisation responsable est essentielle pour maintenir un
-						environnement respectueux des droits d'autrui et pour garantir que l'outil reste un
-						atout
-						précieux pour tous. </p>
+					<p>Avant d'utiliser cet outil pour générer et personnaliser des captures d'écran, il est crucial de
+						comprendre et de respecter les droits d'auteur et les lois en vigueur liées à l'utilisation de
+						contenus numériques. En utilisant cet outil, vous vous engagez à ne pas enfreindre les droits
+						d'auteur ou les marques déposées appartenant à des tiers. </p>
+					<p>Il est de votre responsabilité de vous assurer que le contenu capturé et les logos ou images
+						ajoutés ne violent pas les droits de propriété intellectuelle d'autres parties. De plus, toute
+						manipulation d'images ou de contenus doit être effectuée dans le respect des lois applicables, y
+						ompris, mais sans s'y limiter, les lois sur la diffamation, la vie privée et l'image publique.
+					</p>
+					<p>Utiliser des images ou des logos sans autorisation peut avoir des conséquences légales sérieuses,
+						incluant des poursuites judiciaires pour violation de droits d'auteur. Nous encourageons
+						vivement tous les utilisateurs à procéder à une vérification diligente et à obtenir les
+						permissions nécessaires avant d'utiliser des contenus protégés par des droits d'auteur ou des
+						marques. </p>
+					<p>Cet outil est conçu pour faciliter la création et la personnalisation de contenus dans un cadre
+						légal et éthique. Votre utilisation responsable est essentielle pour maintenir un environnement
+						respectueux des droits d'autrui et pour garantir que l'outil reste un atout précieux pour tous.
+					</p>
 				</div>
+				<div id="close">X</div>
 		</section>
 
 
