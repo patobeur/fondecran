@@ -59,7 +59,6 @@ body {
 	&.zoom-in{
 		cursor: pointer;
 	}
-
 	&.norepeat {
 		background-repeat: repeat;
 	}
@@ -187,11 +186,30 @@ body {
 
 		/* alignements des blocs */
 		.parts {
+			position: relative;
 			padding: 8px;
-					border-radius: 7px;
-					background-color: #000000;
-					margin-bottom: 1rem;
-
+			border-radius: 7px;
+			background-color: #000000;
+			margin-bottom: 1rem;
+			&.dev {
+				display: none;
+				label {
+					color:#9b51e0;
+				}
+			}
+			.popup{
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: absolute;
+				top:-5px;
+				right: -5px;
+				width:32px;
+				height:32px;
+				border-radius: 50%;
+				background-color: #2baa32;
+				box-shadow: 3px 3px 3px black;
+			}
 			select {
 				max-width: 100%;
 			}
@@ -316,6 +334,8 @@ body {
 			border-radius: 5px;
 		}
 	}
+
+
 }
 
 @media  (max-width: 500px) {
@@ -338,3 +358,4 @@ body {
 		}
 	}
 }
+

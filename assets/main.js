@@ -4,15 +4,12 @@ console.log(Date())
 function updateWindowSize() {
 	var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 	var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-
 	document.getElementById('ww').textContent = width;
 	document.getElementById('wh').textContent = height;
 }
 function initialisation() {
-	// let w = 1920; // largeur en pixel de la captur écran
-	// let h = 1200; // hauteur en pixel de la capture écran
-	// let logoctif = true;
-	let menuactif = true;
+	let infoscreenActive = true;
+	let menuActive = true;
 	// let defaultbgimagefilename = 'capture_ecran'
 	// let imagefilename = 'capture_ecran'
 	let menuElem = document.getElementById('menu')
@@ -29,9 +26,9 @@ function initialisation() {
 	// --------------------------------------------------------------------
 	document.onclick = function (event) {
 		if (event.target.id === 'html' || event.target.id === 'options' || event.target.id === 'body' || event.target.id === 'close') {
-			menuactif = !menuactif
-			menuactif ? menuElem.classList.remove('hidden') : menuElem.classList.add('hidden');
-			menuactif ? document.body.classList.remove('zoom-in') : document.body.classList.add('zoom-in');
+			menuActive = !menuActive
+			menuActive ? menuElem.classList.remove('hidden') : menuElem.classList.add('hidden');
+			menuActive ? document.body.classList.remove('zoom-in') : document.body.classList.add('zoom-in');
 		}
 	};
 	// --------------------------------------------------------------------
@@ -81,9 +78,39 @@ function initialisation() {
 	};
 
 	// --------------------------------------------------------------------
+	// selection du fichier pour ajouter l'image en arrière plan du body
+	// --------------------------------------------------------------------
+	document.getElementById('background-upload').addEventListener('change', function (event) {
+		if (event.target.files.length > 0) {
+			var backgroundImageFile = event.target.files[0];
+			var backgroundReader = new FileReader();
+
+			backgroundReader.onload = function (e) {
+				document.body.style.backgroundImage = 'url(' + e.target.result + ')';
+				document.getElementById('zonebackground').style.display = 'flex';
+				document.getElementById('drop-zone-bg-image').style.display = 'none';
+			};
+			backgroundReader.readAsDataURL(backgroundImageFile);
+		}
+	});
+	// --------------------------------------------------------------------
+	// selection du fichier pour ajouter un logo
+	// --------------------------------------------------------------------
+	// Gestion du téléchargement du logo
+	document.getElementById('logo-upload').addEventListener('change', function (event) {
+		if (event.target.files.length > 0) {
+			var logoFile = event.target.files[0];
+			var logoReader = new FileReader();
+
+			logoReader.onload = function (e) {
+				document.getElementById('logoimage').src = e.target.result;
+			};
+			logoReader.readAsDataURL(logoFile);
+		}
+	});
+	// --------------------------------------------------------------------
 	// dropZone pour ajouter l'image en arrière plan du body
 	// --------------------------------------------------------------------
-
 	zonebgimage.ondragover = function (event) {
 		event.preventDefault();
 		this.style.borderColor = 'green';
@@ -99,8 +126,8 @@ function initialisation() {
 			var fileReader = new FileReader();
 			fileReader.onload = function (event) {
 				document.body.style.backgroundImage = 'url(' + event.target.result + ')';
-				zonebackground.style.display = 'flex';
-				zonebgimage.style.display = 'none';
+				document.getElementById('zonebackground').style.display = 'flex';
+				document.getElementById('drop-zone-bg-image').style.display = 'none';
 
 			};
 			fileReader.readAsDataURL(files[0]);
@@ -131,6 +158,13 @@ function initialisation() {
 	// --------------------------------------------------------------------
 	// Bouton pour supprimer l'image de fond
 	// --------------------------------------------------------------------
+	document.getElementById('popinfoscreen').onclick = function () {
+		infoscreenActive = !infoscreenActive
+		infoscreenActive ? document.getElementById('infoscreen').classList.add('active') : document.getElementById('infoscreen').classList.remove('active');
+	};
+	// --------------------------------------------------------------------
+	// Bouton pour supprimer l'image de fond
+	// --------------------------------------------------------------------
 	document.getElementById('remove-background').onclick = function () {
 		document.body.style.backgroundImage = ''
 		zonebackground.style.display = ''
@@ -148,7 +182,7 @@ function initialisation() {
 	// --------------------------------------------------------------------
 	document.getElementById('screenshotBtn').addEventListener('click', function () {
 		console.log('capture écran ...')
-		menuactif = true;
+		menuActive = true;
 		menuElem.classList.add('hidden');
 		html2canvas(document.body).then(function (canvas) {
 			// Convertir le canvas en une image

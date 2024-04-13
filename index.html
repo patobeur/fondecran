@@ -57,6 +57,8 @@
 				<!-- image logo -->
 				<div class="parts">
 					<h2>Logo</h2>
+
+
 					<!-- Afficher/Masquer logo -->
 					<div class="row">
 						<p>Afficher le logo: </p>
@@ -72,6 +74,12 @@
 						<p>Ajouter un logo en le glissant dans la zone en pointillées ci dessous !</p>
 						<div id="drop-zone-logo">
 							Glissez une image ici pour l'utiliser comme logo
+						</div>
+
+						<!-- Sélection de logo -->
+						<div id="logo-selector">
+							<label for="logo-upload">Téléchargez votre logo :</label>
+							<input type="file" id="logo-upload" accept="image/*">
 						</div>
 						<!-- margin-left logo -->
 						<h2>Options</h2>
@@ -104,6 +112,11 @@
 						Glissez une image ici pour l'utiliser comme fond d'écran<br>Vous ne verrez plus la couleur du
 						fond si une image est ajoutée.
 					</div>
+					<!-- Sélection d'image de fond -->
+					<div id="background-selector">
+						<label for="background-upload">Téléchargez une image de fond :</label>
+						<input type="file" id="background-upload" accept="image/*">
+					</div>
 					<div id="zonebackground" class="column">
 						<button id="remove-background" class="trigger-action">Supprimer l'image de fond</button>
 					</div>
@@ -120,19 +133,34 @@
 					</div>
 				</div>
 				<div class="parts">
+					<div id="popinfoscreen" class="popup">💡</div>
+					<h2>Informations sur l'image générée !</h2>
+					<div id="wsize">
+						Taille: <span id="ww"></span><span id="inter">x</span><span id="wh">y</span> pixels.
+					</div>
+					<div class="infoscreen">
+						<p>La taille de la capture d'écran que vous obtiendrez avec notre outil correspond exactement à
+							la taille de la fenêtre de votre navigateur au moment de la capture. Cela signifie que le
+							rendu final de votre image dépend directement des dimensions de cette fenêtre. Ainsi, si
+							vous souhaitez une capture d'écran plus grande ou avec des proportions spécifiques, vous
+							devrez ajuster la taille de la fenêtre de votre navigateur avant de réaliser la capture.</p>
+						<p>Il est important de saisir cette subtilité, car la dimension de la fenêtre influence non
+							seulement la largeur et la hauteur de l'image finale, mais également la manière dont les
+							éléments s'affichent à l'intérieur. Par exemple, un site web peut s'afficher différemment
+							sur un écran large par rapport à un écran plus étroit, impactant ainsi le contenu visible
+							dans votre capture.</p>
+						<p>En résumé, pour un résultat optimal, prenez un moment pour ajuster la fenêtre de votre
+							navigateur à la taille souhaitée pour votre capture d'écran. Cela vous aidera à obtenir une
+							image qui répond précisément à vos attentes en termes de dimensions et de composition.</p>
+					</div>
+				</div>
+				<div class="parts dev">
 					<!-- nom du fichier téléchargé -->
 					<h2>Options</h2>
 					<div class="row">
 						<label for="bg-image-name">Nom du fichier téléchargé. (pas encore actif)</label>
 						<input class="cart" id="bg-image-name" disable type="text" value="capture-ecran"
 							oninvalid="this.setCustomValidity('Entrez du texte.')" oninput="this.setCustomValidity('')">
-					</div>
-				</div>
-				<div class="parts">
-					<h2>Informations sur l'image générée !</h2>
-					<div id="wsize">
-						Taille en pixel (égale à la taille de la fenêtre): <br /><span id="ww"></span><span
-							id="inter">x</span><span id="wh">y</span> pixels.
 					</div>
 				</div>
 				<div class="footer-pop">
