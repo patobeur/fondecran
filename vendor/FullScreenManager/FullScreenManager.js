@@ -2,18 +2,22 @@ class FullScreenManager {
 	conslog = true
 	FullScreenTriggerDiv = false
 	isFullScreenOn = false
+	topbutton = true
 	constructor() {
 		this.rootpath = 'vendor/';
 	}
-	init(topbutton = true) {
-		this.topbutton = topbutton === true ? true : false;
+	init(conf = false) {
+		if (typeof conf === 'object') {
+			if (typeof conf.topbutton === 'boolean') this.topbutton = conf.topbutton
+		}
 		if (this.topbutton) {
 			this.#addDiv()
 			this.#activatebuttonsfullscreen()
 		}
+
 		document.documentElement.onfullscreenchange = (e) => {
 			if (this.conslog) console.log('fullscreen change to ', this.isFullScreenOn)
-			this.FullScreenTriggerDiv.className = this.isFullScreenOn ? "full" : ""
+			if (this.topbutton) this.FullScreenTriggerDiv.className = this.isFullScreenOn ? "full" : ""
 		};
 	}
 	#addDiv() {
@@ -27,8 +31,9 @@ class FullScreenManager {
 		document.body.appendChild(this.FullScreenTriggerDiv)
 
 	}
-	get_isFullScreenOn() {
-		return this.isFullScreenOn
+	get_FullScreenTriggerDiv() {
+		return this.FullScreenTriggerDiv
+		// return this.isFullScreenOn
 	}
 	addCss(stringcss, styleid) {
 		let style = document.createElement('style');

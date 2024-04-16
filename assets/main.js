@@ -5,7 +5,6 @@ class Main {
 		this._OM = new OptionsManager()
 	}
 	init() {
-		this._FSM.init(false);
 		// this._LSF.init();
 		this._OM.init(this._FSM);
 	}

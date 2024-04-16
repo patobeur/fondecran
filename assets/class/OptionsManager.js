@@ -4,20 +4,24 @@ class OptionsManager {
 	}
 	init = (FSM) => {
 		this._FSM = FSM
+		this._FSM.init({ topbutton: false });
 
-
-		this.FullScreenTriggerDiv = this._FSM.get_isFullScreenOn() ?? 'undefined';
+		this.FullScreenTriggerDiv = this._FSM.get_FullScreenTriggerDiv() ?? 'undefined';
 
 		this.menuActive = true;
 		this.infoscreenActive = false;
 
-		this.infoscreenDiv = document.getElementById('infoscreen');
+
 		this.optionMenu = document.getElementById('menu')
 		this.logo = document.getElementById('logoimage')
+		// this.logo = document.querySelector('img[alt="brand logo"]')
 		this.zonelogo = document.getElementById('zonelogo')
 		this.zonebackground = document.getElementById('zonebackground')
 		this.backgroundSelect = document.getElementById('background-select')
 		this.zonebgimage = document.getElementById('drop-zone-bg-image')
+
+
+
 
 		this.display_Options();
 		this.update_BackgroundColor();
@@ -41,9 +45,12 @@ class OptionsManager {
 		// --------------------------------------------------------------------
 		// Bouton pour afficher les informations concernant l'image générée
 		// --------------------------------------------------------------------
-		document.getElementById('popinfoscreen').onclick = () => {
+		this.popinfoscreen = document.getElementById('popinfoscreen')
+		this.popinfoscreen.onclick = () => {
 			this.infoscreenActive = !this.infoscreenActive
-			this.infoscreenActive ? this.infoscreenDiv.classList.add('active') : document.getElementById('infoscreen').classList.remove('active');
+			this.infoscreenActive
+				? this.popinfoscreen.classList.add('active')
+				: this.popinfoscreen.classList.remove('active');
 		};
 	}
 	display_Options() {
@@ -65,7 +72,7 @@ class OptionsManager {
 		// elles doivent exister dans le :root{} dans style.css
 		// pour l'instant le select est fait main et non généré en js
 		// --------------------------------------------------------------------
-		document.getElementById('background-select').onchange = () => {
+		this.backgroundSelect.onchange = () => {
 			var selectedValue = this.backgroundSelect.value;
 			document.body.style.background = 'var(' + selectedValue + ')';
 		};
@@ -74,11 +81,11 @@ class OptionsManager {
 		// --------------------------------------------------------------------
 		// largeur du logo en pixel
 		// --------------------------------------------------------------------
-		document.getElementById('width-logo').onchange = () => {
-			var logoWidth = document.getElementById('width-logo').value;
-			if (!isNaN(logoWidth) && logoWidth !== '' && logoWidth > 0) {
-				this.logo.style.width = logoWidth + 'px';
-				// document.querySelector('img[alt="brand logo"]').style.width = logoWidth + 'px';
+		this.widthlogo = document.getElementById('width-logo')
+		this.widthlogo.onchange = () => {
+			var value = this.widthlogo.value;
+			if (!isNaN(value) && value !== '' && value > 0) {
+				this.logo.style.width = value + 'px';
 			} else {
 				alert('Veuillez entrer une valeur numérique positive pour la largeur.');
 			}
@@ -88,10 +95,11 @@ class OptionsManager {
 		// --------------------------------------------------------------------
 		// margin-top du logo
 		// --------------------------------------------------------------------
-		document.getElementById('margin-top-logo').onchange = () => {
-			var logoMarginTop = document.getElementById('margin-top-logo').value;
-			if (!isNaN(logoMarginTop) && logoMarginTop !== '') {
-				this.logo.style.marginTop = logoMarginTop + 'px';
+		this.margintoplogo = document.getElementById('margin-top-logo')
+		this.margintoplogo.onchange = () => {
+			var value = this.margintoplogo.value;
+			if (!isNaN(value) && value !== '') {
+				this.logo.style.marginTop = value + 'px';
 			} else {
 				alert('Veuillez entrer une valeur numérique pour la marge au dessus.');
 			}
@@ -101,10 +109,11 @@ class OptionsManager {
 		// --------------------------------------------------------------------
 		// margin-left du logo
 		// --------------------------------------------------------------------
-		document.getElementById('margin-left-logo').onchange = () => {
-			var logoMarginLeft = document.getElementById('margin-left-logo').value;
-			if (!isNaN(logoMarginLeft) && logoMarginLeft !== '') {
-				this.logo.style.marginLeft = logoMarginLeft + 'px';
+		this.marginleftlogo = document.getElementById('margin-left-logo')
+		this.marginleftlogo.onchange = () => {
+			var value = this.marginleftlogo.value;
+			if (!isNaN(value) && value !== '') {
+				this.logo.style.marginLeft = value + 'px';
 			} else {
 				alert('Veuillez entrer une valeur numérique pour la marge de gauche.');
 			}
@@ -114,7 +123,8 @@ class OptionsManager {
 		// --------------------------------------------------------------------
 		// selection du fichier pour ajouter l'image en arrière plan du body
 		// --------------------------------------------------------------------
-		document.getElementById('background-upload').addEventListener('change', (event) => {
+		this.backgroundupload = document.getElementById('background-upload')
+		this.backgroundupload.addEventListener('change', (event) => {
 			if (event.target.files.length > 0) {
 				var backgroundImageFile = event.target.files[0];
 				var backgroundReader = new FileReader();
@@ -218,7 +228,6 @@ class OptionsManager {
 		// --------------------------------------------------------------------
 		// Bouton pour switcher le Mode pleine écran ???
 		// --------------------------------------------------------------------
-		console.log('is:', this._FSM.isFullScreenOn)
 		if (!this._FSM.isFullScreenOn) document.getElementById('toggle-fullscreen').checked = true
 		document.getElementById('toggle-fullscreen').onclick = (e) => {
 			console.log('switch')
@@ -232,7 +241,7 @@ class OptionsManager {
 		document.getElementById('screenshotBtn').addEventListener('click', () => {
 			console.log('capture écran ...')
 			// fullscreen
-			if (this.FullScreenTriggerDiv != 'undefined') {
+			if (this._FSM.topbutton && this.FullScreenTriggerDiv != 'undefined') {
 				this.FullScreenTriggerDiv.classList.add('hidden');
 			}
 
@@ -248,7 +257,7 @@ class OptionsManager {
 				link.href = image;
 				link.click();
 
-				if (this.FullScreenTriggerDiv != 'undefined') {
+				if (this._FSM.topbutton && this.FullScreenTriggerDiv != 'undefined') {
 					this.FullScreenTriggerDiv.classList.remove('hidden');
 				}
 				this.optionMenu.classList.remove('hidden');
