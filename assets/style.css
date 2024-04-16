@@ -56,6 +56,12 @@ body {
 	height: 100vh;
 	min-width: 100vw;
 	min-height: 100vh;
+		p {
+			padding: 7px 0 0 0;
+			&:last-child {
+				padding-bottom: 7px;
+			}
+		}
 	&.zoom-in{
 		cursor: pointer;
 	}
@@ -191,6 +197,18 @@ body {
 			border-radius: 7px;
 			background-color: #000000;
 			margin-bottom: 1rem;
+			
+	.infoscreen {
+		line-height: 1.2rem;
+		height: 0px;
+		overflow: hidden;
+		transition: height 3s ease-out;
+		&.active{
+			overflow: initial;
+			height: initial;
+		}
+	}
+
 			&.dev {
 				display: none;
 				label {
@@ -229,6 +247,7 @@ body {
 				justify-content: space-between;
 				align-items: center;
 				color:white;
+				margin-bottom: 3px;
 			}
 
 			.column {
@@ -282,7 +301,9 @@ body {
 				}
 			}
 
-			#display-logo {
+			#display-logo,
+			#display-fullscreen {
+
 				.point:before {
 					content: "Oui";
 					position: absolute;
@@ -334,7 +355,6 @@ body {
 			border-radius: 5px;
 		}
 	}
-
 
 }
 

@@ -1,4 +1,6 @@
-# 📄 Documentation Utilisateur - Outil de Capture d'Écran
+# 📄 Documentation Utilisateur
+
+## 📸 Outil de Capture d'Écran
 
 Bienvenue dans la documentation de notre outil de capture d'écran, conçu pour donner vie à vos arrière-plans personnalisés. De la gestion du logo au choix des fonds, découvrez comment exploiter au mieux notre application.
 

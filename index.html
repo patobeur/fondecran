@@ -5,9 +5,13 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>selection de couleur</title>
-		<script src="vendor/html2canvas.min.js"></script>
 		<link rel="stylesheet" href="assets/style.css">
 
+		<script src="vendor/html2canvas.min.js"></script>
+		<script src="vendor/FullScreenManager/FullScreenManager.js"></script>
+
+		<script src="assets/class/LocalStorageManager.js"></script>
+		<script src="assets/class/OptionsManager.js"></script>
 		<script src="assets/main.js"></script>
 	</head>
 
@@ -56,7 +60,7 @@
 				</div>
 				<!-- image logo -->
 				<div class="parts">
-					<h2>Logo</h2>
+					<h2>🛠 Logo</h2>
 
 
 					<!-- Afficher/Masquer logo -->
@@ -78,7 +82,7 @@
 
 						<!-- Sélection de logo -->
 						<div id="logo-selector">
-							<label for="logo-upload">Téléchargez votre logo :</label>
+							<label class="logofilelabel" for="logo-upload">ou indiquer le fichier à utiliser:</label>
 							<input type="file" id="logo-upload" accept="image/*">
 						</div>
 						<!-- margin-left logo -->
@@ -118,18 +122,36 @@
 						<input type="file" id="background-upload" accept="image/*">
 					</div>
 					<div id="zonebackground" class="column">
-						<button id="remove-background" class="trigger-action">Supprimer l'image de fond</button>
+						<button id="remove-background" class="trigger-action">Supprimer l'image de fond
+							actuelle</button>
 					</div>
 				</div>
 				<!-- Download Genaration de l'image -->
 				<div class="parts">
 					<h2>Actions</h2>
-					<p>Afin que votre image fasse la bonne taille, appuyer sur [F11] pour passer en pleine écran.
-					</p>
-					<p>Cela facilitera vos captures d'écran !</p>
+					<!-- Afficher/Masquer logo -->
+					<div class="row">
+						<p>Mode en pleine écran.</p>
+						<div class="interupteur">
+							<div class="trigger rond" id="display-fullscreen">
+								<input type="checkbox" class="checkbox" id="toggle-fullscreen" />
+								<div class="point"></div>
+								<div class="cartouche"></div>
+							</div>
+						</div>
+					</div>
 					<!-- boutton de  téléchargement -->
 					<div class="column">
 						<button id="screenshotBtn" class="trigger-action">Prendre une capture d'écran</button>
+					</div>
+				</div>
+				<div class="parts">
+					<!-- nom du fichier téléchargé -->
+					<h2>Nommage du fichier crée</h2>
+					<div class="col">
+						<label for="bg-image-name">Indiquez le nom du fichier sans extension.</label>
+						<input class="cart" id="bg-image-name" disable type="text" value="capture-ecran"
+							oninvalid="this.setCustomValidity('Entrez du texte.')" oninput="this.setCustomValidity('')">
 					</div>
 				</div>
 				<div class="parts">
@@ -138,7 +160,7 @@
 					<div id="wsize">
 						Taille: <span id="ww"></span><span id="inter">x</span><span id="wh">y</span> pixels.
 					</div>
-					<div class="infoscreen">
+					<div id="infoscreen" class="infoscreen">
 						<p>La taille de la capture d'écran que vous obtiendrez avec notre outil correspond exactement à
 							la taille de la fenêtre de votre navigateur au moment de la capture. Cela signifie que le
 							rendu final de votre image dépend directement des dimensions de cette fenêtre. Ainsi, si
@@ -152,19 +174,14 @@
 						<p>En résumé, pour un résultat optimal, prenez un moment pour ajuster la fenêtre de votre
 							navigateur à la taille souhaitée pour votre capture d'écran. Cela vous aidera à obtenir une
 							image qui répond précisément à vos attentes en termes de dimensions et de composition.</p>
+
 					</div>
 				</div>
-				<div class="parts dev">
-					<!-- nom du fichier téléchargé -->
-					<h2>Options</h2>
-					<div class="row">
-						<label for="bg-image-name">Nom du fichier téléchargé. (pas encore actif)</label>
-						<input class="cart" id="bg-image-name" disable type="text" value="capture-ecran"
-							oninvalid="this.setCustomValidity('Entrez du texte.')" oninput="this.setCustomValidity('')">
-					</div>
+				<div class="parts">🔗 Code source : <a href="https://github.com/patobeur/fondecran"
+						target="_blank">https://github.com/patobeur/fondecran</a>
 				</div>
 				<div class="footer-pop">
-					<p class="alerteinfo">Avis Important Concernant les Droits et les Lois</p>
+					<p class="alerteinfo">📄 Avis Important Concernant les Droits et les Lois</p>
 					<p>Avant d'utiliser cet outil pour générer et personnaliser des captures d'écran, il est crucial de
 						comprendre et de respecter les droits d'auteur et les lois en vigueur liées à l'utilisation de
 						contenus numériques. En utilisant cet outil, vous vous engagez à ne pas enfreindre les droits
